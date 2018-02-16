@@ -14,6 +14,12 @@
 
 <body>
 <div class="container">
+    <c:if test="${empty book.title}">
+        <h1>Книга c названием "${book.description}" не найдена</h1>
+        <a href="/books"> <button class="btn">Назад</button></a>
+    </c:if>
+
+    <c:if test="${!empty book.title}">
 <h1>Название: ${book.title}</h1>
 <br>
 <table class="table table-bordered">
@@ -50,7 +56,7 @@
 
 </h3>
 </table>
-
+    </c:if>
 </div>
 </body>
 </html>

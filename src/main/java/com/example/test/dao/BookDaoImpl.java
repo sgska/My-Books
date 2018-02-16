@@ -81,7 +81,9 @@ public class BookDaoImpl implements BookDao {
                 .setParameter("title", searchTitle)
                 .list();
         if (books.size() == 0) {
-            return new Book();
+            Book book = new Book();
+            book.setDescription(searchTitle);
+            return book;
         } else {
             return books.get(0);
         }
