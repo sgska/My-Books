@@ -41,7 +41,12 @@ public class BookController {
     public String addBook(@ModelAttribute("book") Book book) {
         if (book.getId() == 0) {
             if (book.getTitle().length() == 0) {
-                book.setTitle("Auto generated name by ID " + (bookService.getBooks().get(bookService.getBooks().size() - 1).getId() + 1));
+                if (bookService.getBooks().size() > 0) {
+                    book.setTitle("Auto generated name by ID " +
+                            (bookService.getBooks().get(bookService.getBooks().size() - 1).getId() + 1));
+                } else {
+                    book.setTitle("Auto generated name by ID 1");
+                }
             }
             bookService.addBook(book);
         } else {
