@@ -45,7 +45,7 @@ public class BookController {
                     book.setTitle("Auto generated name by ID " +
                             (bookService.getBooks().get(bookService.getBooks().size() - 1).getId() + 1));
                 } else {
-                    book.setTitle("Auto generated name by ID 1");
+                    book.setTitle("Auto generated name");
                 }
             }
             bookService.addBook(book);
